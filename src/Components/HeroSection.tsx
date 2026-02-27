@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
           <div className="md:w-1/2 mb-8 md:mb-0">
             
             <h1 className="text-3xl md:text-5xl font-bold text-[#1D184E] mb-2">
-              Find the best deal on car insurance with unbeatable coverage!
+              Find a great deal on car insurance with incredible coverage!
             </h1>
 
             {/* Phone Number */}

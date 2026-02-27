@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({ setActiveModal }) => {
 
             <p className="text-gray-600 max-w-xs">
               Get personalized auto insurance quotes quickly and easily.
-              Save money while getting the coverage you need.
+              Potentially save money while getting the coverage you need.
             </p>
           </div>
 

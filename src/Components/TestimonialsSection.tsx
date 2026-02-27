@@ -5,7 +5,7 @@ const testimonials = [
   {
     id: 1,
     name: "Sarah",
-    title: "Connected to the Best Insurer",
+    title: "Connected to a Great Insurer",
     content:
       "I was overwhelmed searching for the right insurance, but this service matched me with top providers and guided me step by step. They explained each option clearly and made sure I understood every part of the process. I now have great coverage, and it was all so easy thanks to their help!",
     image: "/Sarah.jpg",
@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
 
   // Animation variants
   const variants = {
-    enter: (direction) => ({
+    enter: (direction: number) => ({
       x: direction > 0 ? 300 : -300,
       opacity: 0,
     }),
@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
       x: 0,
       opacity: 1,
     },
-    exit: (direction) => ({
+    exit: (direction: number) => ({
       x: direction < 0 ? 300 : -300,
       opacity: 0,
     }),
@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-[#1D184E] mb-12">
-          We Connect You With the Best Auto Insurance—<br className="hidden md:block" />
+          We Connect You With Great Auto Insurance—<br className="hidden md:block" />
           and Guide You Every Step of the Way
         </h2>
 
@@ -161,11 +161,10 @@ const TestimonialsSection = () => {
                 setDirection(index > activeIndex ? 1 : -1);
                 setActiveIndex(index);
               }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === activeIndex
-                  ? "bg-[#F26624] w-6"
-                  : "bg-gray-300 hover:bg-gray-400"
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex
+                ? "bg-[#F26624] w-6"
+                : "bg-gray-300 hover:bg-gray-400"
+                }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
