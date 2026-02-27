@@ -9,10 +9,10 @@ const HeroSection: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
-          
-          {/* Left Content */}
+
+
           <div className="md:w-1/2 mb-8 md:mb-0">
-            
+
             <h1 className="text-3xl md:text-5xl font-bold text-[#1D184E] mb-2">
               Find a great deal on car insurance with incredible coverage!
             </h1>
@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
             </p>
 
             <div className="space-y-4 text-gray-700">
-              
+
               {/* Item 1 */}
               <div className="flex items-start">
                 <svg
