@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivacyPolicy from "./Components/modals/PrivacyPolicy";
 import TermsConditions from "./Components/modals/TermsAndConditions";
 import CookiePolicy from "./Components/modals/Cookies";
 import LandingPage from "./pages/LandingPage";
-
-// Local components (paste these below or split into files as needed)
+import SignPage from "./pages/SignPage";
 
 export type ModalType = "privacy" | "terms" | "cookies" | null;
 
@@ -25,10 +25,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <LandingPage setActiveModal={setActiveModal} />
-      {renderModal()}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<LandingPage setActiveModal={setActiveModal} />} />
+          <Route path="/sign" element={<SignPage setActiveModal={setActiveModal} />} />
+        </Routes>
+        {renderModal()}
+      </div>
+    </BrowserRouter>
   );
 };
 

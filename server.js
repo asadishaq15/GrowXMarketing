@@ -53,6 +53,56 @@ async function createServer() {
     }
   });
 
+  // Submit signed agreement
+  const AGREEMENTS_FILE = path.join(__dirname, 'agreements.json');
+
+  const loadAgreements = () => {
+    try {
+      if (fs.existsSync(AGREEMENTS_FILE)) {
+        return JSON.parse(fs.readFileSync(AGREEMENTS_FILE, 'utf-8'));
+      }
+    } catch (e) {
+      console.error('Error loading agreements:', e);
+    }
+    return [];
+  };
+
+  const saveAgreements = (agreements) => {
+    fs.writeFileSync(AGREEMENTS_FILE, JSON.stringify(agreements, null, 2));
+  };
+
+  app.post('/api/submit-agreement', (req, res) => {
+    try {
+      const agreement = {
+        id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
+        ...req.body,
+        submittedAt: new Date().toISOString(),
+      };
+
+      const agreements = loadAgreements();
+      agreements.push(agreement);
+      saveAgreements(agreements);
+
+      console.log(`Agreement submitted by: ${agreement.name} (${agreement.email})`);
+      res.status(200).json({ success: true, id: agreement.id });
+    } catch (error) {
+      console.error('Error saving agreement:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Get all agreements (for agent dashboard)
+  app.get('/api/agreements', (req, res) => {
+    try {
+      const agreements = loadAgreements();
+      // Return without signature data for listing (it's large base64)
+      const summary = agreements.map(({ signature, ...rest }) => rest);
+      res.status(200).json(summary);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Create Vite server in middleware mode
   const vite = await createViteServer({
     server: { middlewareMode: true },
