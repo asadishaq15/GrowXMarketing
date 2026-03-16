@@ -1,74 +1,36 @@
-import React from 'react';
+import React from "react";
+import Modal from "../Modal";
 
-const TermsAndConditions: React.FC = () => {
-  return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-[#1D184E]">Terms and Conditions</h1>
-      
-      <p className="text-gray-600">
-        Last updated: January 20, 2026
-      </p>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">1. Agreement to Terms</h2>
-        <p>
-          By accessing or using the Speedy Quote Auto website and services, you agree to be bound by these Terms and Conditions. If you disagree with any part of the terms, you may not access the service.
-        </p>
-      </section>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">2. Use of Services</h2>
-        <p>
-          Our service provides insurance quotes based on the information you provide. We strive for accuracy, but cannot guarantee that all quotes will be exact or that coverage will be issued by insurance providers.
-        </p>
-        <p>
-          You agree to provide accurate, current, and complete information during the quote process. Inaccurate information may result in incorrect quotes or denial of coverage by insurance providers.
-        </p>
-      </section>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">3. Limitations of Liability</h2>
-        <p>
-          Speedy Quote Auto and its suppliers shall not be liable for any damages that result from the use of, or inability to use, our services.
-        </p>
-        <p>
-          We provide information for general purposes only. Insurance coverage decisions should be made in consultation with qualified insurance professionals.
-        </p>
-      </section>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">4. Intellectual Property</h2>
-        <p>
-          The Speedy Quote Auto website, its original content, features, and functionality are owned by Speedy Quote Auto and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
-        </p>
-      </section>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">5. Termination</h2>
-        <p>
-          We may terminate or suspend your access to our service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
-        </p>
-      </section>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">6. Changes to Terms</h2>
-        <p>
-          We reserve the right to modify or replace these Terms at any time. By continuing to access or use our service after any revisions become effective, you agree to be bound by the revised terms.
-        </p>
-      </section>
-      
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold text-[#1D184E]">7. Contact Information</h2>
-        <p>
-          If you have any questions about these Terms, please contact us at:
-        </p>
-        <p>
-          Email: info@speedyquoteauto.org<br />
-  
-        </p>
-      </section>
-    </div>
-  );
+type Props = {
+  onClose: () => void;
 };
 
-export default TermsAndConditions;
+const TermsConditions: React.FC<Props> = ({ onClose }) => (
+  <Modal onClose={onClose}>
+    <div className="prose max-w-none">
+      <h2>Terms and Conditions</h2>
+      <p>Last Updated: March 16, 2026</p>
+      <h3>1. Agreement to Terms</h3>
+      <p>
+        By accessing or using GrowX Marketing Services, you agree to be bound by these Terms and Conditions.
+        If you disagree with any part of the terms, you may not access our services.
+      </p>
+      <h3>2. Description of Services</h3>
+      <p>
+        GrowX Marketing Services provides various marketing services including digital marketing strategy,
+        search engine optimization, social media management, paid advertising, content marketing, and analytics & reporting.
+      </p>
+      <h3>3. User Responsibilities</h3>
+      <h3>4. Payment and Billing</h3>
+      <h3>5. Intellectual Property</h3>
+      <h3>6. Limitation of Liability</h3>
+      <h3>7. Term and Termination</h3>
+      <h3>8. Governing Law</h3>
+      <p>
+        If you have questions about these Terms and Conditions, please contact us at legal@growxmarketing.com.
+      </p>
+    </div>
+  </Modal>
+);
+
+export default TermsConditions;
