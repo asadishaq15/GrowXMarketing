@@ -15,7 +15,7 @@ const testimonials: Testimonial[] = [
     name: "Emily Johnson",
     company: "TechNova Solutions",
     position: "Marketing Director",
-    quote: "GrowX transformed our digital presence completely. Their strategic approach and attention to detail helped us increase our lead generation by 45% in just three months.",
+    quote: "They transformed our digital presence completely. Their strategic approach and attention to detail helped us increase our lead generation by 45% in just three months.",
     image: "/images/jesica.jpg",
   },
   {
@@ -23,7 +23,7 @@ const testimonials: Testimonial[] = [
     name: "Michael Rodriguez",
     company: "Apex Retail",
     position: "CEO",
-    quote: "Working with GrowX has been a game-changer for our e-commerce business. Their data-driven approach to marketing has helped us achieve a 62% increase in online sales and a 3x ROI on our ad spend.",
+    quote: "Working with this team has been a game-changer for our e-commerce business. Their data-driven approach to marketing has helped us achieve a 62% increase in online sales and a 3x ROI on our ad spend.",
     image: "/images/Michael.jpg",
   },
   {
@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
     name: "Sarah Thompson",
     company: "Wellness Redefined",
     position: "Founder",
-    quote: "As a startup, we needed a marketing partner that understood our vision and could help us reach our target audience effectively. GrowX delivered beyond our expectations, helping us establish a solid brand presence.",
+    quote: "As a startup, we needed a marketing partner that understood our vision and could help us reach our target audience effectively. They delivered beyond our expectations, helping us establish a solid brand presence.",
     image: "/images/Sarah.jpg",
   },
 ];
@@ -45,25 +45,25 @@ const TestimonialsSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Client Success Stories</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with GrowX Marketing.
+            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with us.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          <div className="bg-white rounded-lg shadow-lg p-8 md:p-10">
+          <div className="bg-white rounded-xl shadow-lg p-8 md:p-10 border border-gray-100">
             <div className="flex flex-col md:flex-row items-center">
-            <div className="mb-6 md:mb-0 md:mr-8 flex justify-center">
-  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-green-100 flex-shrink-0">
-    <img
-      src={testimonials[activeIndex].image}
-      alt={testimonials[activeIndex].name}
-      className="w-full h-full object-cover"
-    />
-  </div>
-</div>
+              <div className="mb-6 md:mb-0 md:mr-8 flex justify-center">
+                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-green-100 flex-shrink-0">
+                  <img
+                    src={testimonials[activeIndex].image}
+                    alt={testimonials[activeIndex].name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
               <div>
                 <div className="mb-4">
-                  <svg className="text-green-200 w-12 h-12 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="text-green-200 w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="text-gray-700 italic text-lg">{testimonials[activeIndex].quote}</p>
@@ -76,14 +76,13 @@ const TestimonialsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="flex justify-center mt-8 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? "bg-green-600 w-8" : "bg-gray-300 hover:bg-gray-400"
+                className={`h-3 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? "bg-green-600 w-8" : "bg-gray-300 hover:bg-gray-400 w-3"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
                 type="button"

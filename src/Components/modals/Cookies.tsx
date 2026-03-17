@@ -26,7 +26,7 @@ const CookiePolicy: React.FC<Props> = ({ onClose }) => (
       <h3>4. Third-Party Cookies</h3>
       <h3>5. Changes to This Policy</h3>
       <p>
-        If you have questions about our Cookie Policy, please contact us at privacy@growxmarketing.com.
+        If you have questions about our Cookie Policy, please contact us at privacy@apexdigital.com.
       </p>
     </div>
   </Modal>

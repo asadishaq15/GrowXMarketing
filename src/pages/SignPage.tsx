@@ -61,10 +61,10 @@ const SignPage: React.FC<Props> = ({ setActiveModal }) => {
       <div className="container mx-auto px-6 mb-8">
         <div className="flex items-center justify-center gap-3">
           <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">G</span>
+            <span className="text-white font-bold text-lg">A</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-800">
-            GrowX <span className="text-green-600">Marketing</span>
+            Apex <span className="text-green-600">Digital</span>
           </h1>
         </div>
       </div>

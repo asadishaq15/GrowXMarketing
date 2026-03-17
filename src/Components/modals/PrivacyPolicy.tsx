@@ -12,7 +12,7 @@ const PrivacyPolicy: React.FC<Props> = ({ onClose }) => (
       <p>Last Updated: March 16, 2026</p>
       <h3>1. Introduction</h3>
       <p>
-        At GrowX Marketing Services ("we," "our," or "us"), we respect your privacy and are committed to
+        At Apex Digital Services ("we," "our," or "us"), we respect your privacy and are committed to
         protecting your personal information. This Privacy Policy explains how we collect, use, disclose,
         and safeguard your information when you use our services or visit our website.
       </p>
@@ -30,7 +30,7 @@ const PrivacyPolicy: React.FC<Props> = ({ onClose }) => (
       <h3>7. Changes to This Policy</h3>
       <h3>8. Contact Us</h3>
       <p>
-        If you have questions about this Privacy Policy, please contact us at privacy@growxmarketing.com.
+        If you have questions about this Privacy Policy, please contact us at privacy@apexdigital.com.
       </p>
     </div>
   </Modal>
