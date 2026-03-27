@@ -13,7 +13,7 @@ const LandingPage = ({ setActiveModal }) => (
   <div className="min-h-screen flex flex-col">
     <Header />
     <main className="flex-grow">
-      <HeroSection setActiveModal={setActiveModal} />
+      <HeroSection />
       <ServicesSection />
       <HowItWorks />
       <TestimonialsSection />

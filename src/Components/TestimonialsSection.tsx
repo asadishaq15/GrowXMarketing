@@ -53,7 +53,7 @@ const TestimonialsSection: React.FC = () => {
           <div className="bg-white rounded-xl shadow-lg p-8 md:p-10 border border-gray-100">
             <div className="flex flex-col md:flex-row items-center">
               <div className="mb-6 md:mb-0 md:mr-8 flex justify-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-green-100 flex-shrink-0">
+                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-[#d1e9f1] flex-shrink-0">
                   <img
                     src={testimonials[activeIndex].image}
                     alt={testimonials[activeIndex].name}
@@ -63,7 +63,7 @@ const TestimonialsSection: React.FC = () => {
               </div>
               <div>
                 <div className="mb-4">
-                  <svg className="text-green-200 w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="text-[#72B9CA] w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="text-gray-700 italic text-lg">{testimonials[activeIndex].quote}</p>
@@ -82,7 +82,7 @@ const TestimonialsSection: React.FC = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? "bg-green-600 w-8" : "bg-gray-300 hover:bg-gray-400 w-3"
+                  index === activeIndex ? "bg-[#034365] w-8" : "bg-gray-300 hover:bg-gray-400 w-3"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
                 type="button"

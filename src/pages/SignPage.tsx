@@ -48,7 +48,7 @@ const SignPage: React.FC<Props> = ({ setActiveModal }) => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#034365] mx-auto mb-4"></div>
           <p className="text-gray-500">Loading your agreement...</p>
         </div>
       </div>
@@ -60,11 +60,11 @@ const SignPage: React.FC<Props> = ({ setActiveModal }) => {
       {/* Simple header for customer view */}
       <div className="container mx-auto px-6 mb-8">
         <div className="flex items-center justify-center gap-3">
-          <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">A</span>
+          <div className="w-10 h-10 bg-[#034365] rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-lg">N</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-800">
-            Apex <span className="text-green-600">Digital</span>
+            Now Get <span className="text-[#034365]">Insured</span>
           </h1>
         </div>
       </div>

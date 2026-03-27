@@ -1,11 +1,18 @@
 import React, { useState, ChangeEvent, FormEvent, useRef, useEffect, useCallback } from "react";
 import { ModalType } from "../App";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {
   setActiveModal: (type: ModalType) => void;
   prefillData?: FormData | null;
   isCustomerMode?: boolean;
 };
+
+type ToastType = "success" | "error" | "info";
+type ToastState = {
+  message: string;
+  type: ToastType;
+} | null;
 
 type FormData = {
   // Personal Info
@@ -252,6 +259,12 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
   const [generatedLink, setGeneratedLink] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState<FormData>({ ...EMPTY_FORM });
+  const [toast, setToast] = useState<ToastState>(null);
+
+  const showToast = useCallback((message: string, type: ToastType = 'info') => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  }, []);
 
   useEffect(() => {
     if (prefillData) {
@@ -271,7 +284,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
 
   const handleGenerateLink = () => {
     if (!formData.firstName || !formData.lastName || !formData.email) {
-      alert("Please fill in at least First Name, Last Name, and Email before generating a link.");
+      showToast("Please fill in at least First Name, Last Name, and Email before generating a link.", "error");
       return;
     }
     const encoded = encodeFormData(formData);
@@ -283,7 +296,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(generatedLink).then(() => {
-      alert("Link copied to clipboard! Share it with your customer.");
+      showToast("Link copied to clipboard! Share it with your customer.", "success");
     });
   };
 
@@ -345,9 +358,9 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
       <section id="contact" className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-green-50 rounded-2xl shadow-lg p-10 border border-green-100">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-[#e8f4f8] rounded-2xl shadow-lg p-10 border border-[#d1e9f1]">
+                <div className="w-20 h-20 bg-[#d1e9f1] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#034365]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -358,7 +371,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
               <p className="text-sm text-gray-500">
                 A confirmation will be sent to <strong>{formData.email}</strong>.
               </p>
-              <div className="mt-8 pt-6 border-t border-green-200">
+                <div className="mt-8 pt-6 border-t border-[#a3d3e3]">
                 <p className="text-xs text-gray-400">
                   Signed on {formData.signature1Timestamp || formatTimestamp()}
                 </p>
@@ -372,10 +385,10 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
 
   const inputClass = isCustomerMode
     ? "w-full px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-700 cursor-not-allowed text-sm"
-    : "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-sm";
+    : "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#467C9E] text-sm";
   const selectClass = isCustomerMode
     ? "w-full px-3 py-2 border border-gray-200 rounded-md bg-gray-50 text-gray-700 cursor-not-allowed text-sm appearance-none"
-    : "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-sm";
+    : "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#467C9E] text-sm";
   const labelClass = "block text-sm font-medium text-gray-700 mb-1";
 
   // ─── Render ────────────────────────────────────────
@@ -423,7 +436,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
               {/* ════════════ SECTION 1: Personal Info ════════════ */}
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-1 flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold">1</span>
+                  <span className="w-7 h-7 rounded-full bg-[#d1e9f1] text-[#034365] flex items-center justify-center text-xs font-bold">1</span>
                   Personal Information
                 </h3>
                 <div className="h-px bg-gray-200 mb-5 mt-2"></div>
@@ -540,7 +553,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
               {/* ════════════ SECTION 2: Location Info ════════════ */}
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-1 flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold">2</span>
+                  <span className="w-7 h-7 rounded-full bg-[#d1e9f1] text-[#034365] flex items-center justify-center text-xs font-bold">2</span>
                   Location Information
                 </h3>
                 <div className="h-px bg-gray-200 mb-5 mt-2"></div>
@@ -600,7 +613,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
               {/* ════════════ SECTION 3: Compliance Consent ════════════ */}
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-1 flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold">3</span>
+                  <span className="w-7 h-7 rounded-full bg-[#d1e9f1] text-[#034365] flex items-center justify-center text-xs font-bold">3</span>
                   Compliance Consent Statement
                 </h3>
                 <div className="h-px bg-gray-200 mb-5 mt-2"></div>
@@ -619,7 +632,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
                     name="agreeEnrollment"
                     checked={formData.agreeEnrollment}
                     onChange={handleChange}
-                    className="h-5 w-5 text-green-600 focus:ring-green-500 border-gray-300 rounded mt-0.5 flex-shrink-0"
+                    className="h-5 w-5 text-[#034365] focus:ring-[#467C9E] border-gray-300 rounded mt-0.5 flex-shrink-0"
                   />
                   <span className="text-sm text-gray-700">
                     I agree to be enrolled in the ACA plan I have chosen and authorize the licensed agent to process my enrollment request.
@@ -630,7 +643,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
               {/* ════════════ SECTION 4: Signature & Verification ════════════ */}
               <div>
                 <h3 className="text-lg font-bold text-gray-800 mb-1 flex items-center gap-2">
-                  <span className="w-7 h-7 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold">4</span>
+                  <span className="w-7 h-7 rounded-full bg-[#d1e9f1] text-[#034365] flex items-center justify-center text-xs font-bold">4</span>
                   Signature &amp; Verification
                 </h3>
                 <div className="h-px bg-gray-200 mb-5 mt-2"></div>
@@ -656,7 +669,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
                     <span className="text-xs text-gray-400">
                       {formData.signature1Timestamp ? `Time Signed: ${formData.signature1Timestamp}` : "Not yet signed"}
                     </span>
-                    <button type="button" onClick={sig1.clear} className="text-xs text-gray-500 hover:text-green-600 transition-colors">
+                    <button type="button" onClick={sig1.clear} className="text-xs text-gray-500 hover:text-[#034365] transition-colors">
                       Clear
                     </button>
                   </div>
@@ -683,7 +696,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
                     <span className="text-xs text-gray-400">
                       {formData.signature2Timestamp ? `Time Signed: ${formData.signature2Timestamp}` : "Not yet signed"}
                     </span>
-                    <button type="button" onClick={sig2.clear} className="text-xs text-gray-500 hover:text-green-600 transition-colors">
+                    <button type="button" onClick={sig2.clear} className="text-xs text-gray-500 hover:text-[#034365] transition-colors">
                       Clear
                     </button>
                   </div>
@@ -696,7 +709,7 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
               <div className="space-y-4 pt-4 border-t border-gray-100">
                 <button
                   type="submit"
-                  className="w-full py-3 px-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-md transition duration-300 shadow-md"
+                  className="w-full py-3 px-4 bg-[#034365] hover:bg-[#023556] text-white font-bold rounded-md transition duration-300 shadow-md"
                 >
                   {isCustomerMode ? "Sign & Submit Enrollment" : "Submit Enrollment"}
                 </button>
@@ -720,28 +733,28 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
                 )}
 
                 {linkGenerated && (
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="p-4 bg-[#e8f4f8] border border-[#a3d3e3] rounded-lg">
                     <div className="flex items-center gap-2 mb-2">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-[#034365]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <p className="font-semibold text-green-800 text-sm">Customer Signing Link Generated!</p>
+                      <p className="font-semibold text-[#034365] text-sm">Customer Signing Link Generated!</p>
                     </div>
                     <div className="flex gap-2 items-stretch">
                       <input
                         type="text" readOnly value={generatedLink}
-                        className="flex-1 px-3 py-2 bg-white border border-green-300 rounded-md text-xs text-gray-600 font-mono"
+                        className="flex-1 px-3 py-2 bg-white border border-[#72B9CA] rounded-md text-xs text-gray-600 font-mono"
                         onClick={(e) => (e.target as HTMLInputElement).select()}
                       />
                       <button type="button" onClick={handleCopyLink}
-                        className="px-4 py-2 bg-green-600 text-white text-sm font-bold rounded-md hover:bg-green-700 transition flex items-center gap-1 whitespace-nowrap">
+                        className="px-4 py-2 bg-[#034365] text-white text-sm font-bold rounded-md hover:bg-[#023556] transition flex items-center gap-1 whitespace-nowrap">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                         </svg>
                         Copy
                       </button>
                     </div>
-                    <p className="text-xs text-green-700 mt-2">
+                    <p className="text-xs text-[#034365] mt-2">
                       Share this link with your customer via SMS, email, or chat. They'll see the pre-filled form and only need to sign.
                     </p>
                   </div>
@@ -750,16 +763,44 @@ const ContactForm: React.FC<Props> = ({ setActiveModal, prefillData = null, isCu
                 <p className="text-xs text-gray-500 mt-2">
                   By submitting this form, you agree to our{" "}
                   <button type="button" onClick={() => setActiveModal("terms")}
-                    className="text-green-600 underline hover:text-green-800">Terms &amp; Conditions</button>{" "}
+                    className="text-[#034365] underline hover:text-[#023556]">Terms &amp; Conditions</button>{" "}
                   and{" "}
                   <button type="button" onClick={() => setActiveModal("privacy")}
-                    className="text-green-600 underline hover:text-green-800">Privacy Policy</button>
+                    className="text-[#034365] underline hover:text-[#023556]">Privacy Policy</button>
                 </p>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, x: 20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9, x: 20, transition: { duration: 0.2 } }}
+            className={`fixed top-8 right-8 z-[100] px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md border ${
+              toast.type === "success" ? "bg-[#034365]/90 text-white border-[#467C9E]/50" : 
+              toast.type === "error" ? "bg-red-600/90 text-white border-red-500/50" : 
+              "bg-blue-600/90 text-white border-blue-500/50"
+            }`}
+          >
+            {toast.type === "success" && (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+            {toast.type === "error" && (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            )}
+            <span className="font-semibold text-sm whitespace-nowrap">{toast.message}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

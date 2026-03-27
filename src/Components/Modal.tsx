@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
     <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
         <div className="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
-          <h2 className="text-xl font-bold text-[#1D184E]">Information</h2>
+          <h2 className="text-xl font-bold text-[#034365]">Information</h2>
           <button 
             onClick={onClose}
             className="p-1 rounded-full hover:bg-gray-200"
@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
         <div className="sticky bottom-0 bg-white p-4 border-t flex justify-end">
           <button 
             onClick={onClose}
-            className="py-2 px-4 bg-gradient-to-r from-[#1D184E] to-[#08509E] text-white rounded hover:opacity-90"
+            className="py-2 px-4 bg-gradient-to-r from-[#034365] to-[#467C9E] text-white rounded hover:opacity-90"
           >
             Close
           </button>

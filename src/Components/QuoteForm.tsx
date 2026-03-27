@@ -21,8 +21,8 @@ const QuoteForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <h2 className="text-2xl font-bold text-center text-[#1D184E] mb-6">
-        Potential Save on Auto Insurance, Get Covered!
+      <h2 className="text-2xl font-bold text-center text-[#034365] mb-6">
+        Get the Coverage You Need Today!
       </h2>
 
       <div>
@@ -35,7 +35,7 @@ const QuoteForm: React.FC = () => {
           name="brand"
           value={formData.brand}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08509E]"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#467C9E]"
           required
         />
       </div>
@@ -49,7 +49,7 @@ const QuoteForm: React.FC = () => {
           name="year"
           value={formData.year}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08509E]"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#467C9E]"
           required
         >
           <option value="">Select an option...</option>
@@ -69,7 +69,7 @@ const QuoteForm: React.FC = () => {
           name="model"
           value={formData.model}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08509E]"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#467C9E]"
           required
         />
       </div>
@@ -84,14 +84,14 @@ const QuoteForm: React.FC = () => {
           name="submodel"
           value={formData.submodel}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#08509E]"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#467C9E]"
         />
       </div>
 
       <div className="pt-2">
         <button
           type="submit"
-          className="w-full py-3 px-4 bg-gradient-to-r from-[#ED2228] to-[#F26624] text-white font-bold rounded-md hover:opacity-90 transition duration-200 flex justify-center items-center mb-2"
+          className="w-full py-3 px-4 bg-gradient-to-r from-[#034365] to-[#467C9E] text-white font-bold rounded-md hover:opacity-90 transition duration-200 flex justify-center items-center mb-2"
         >
           Get a Quote
           <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@ const QuoteForm: React.FC = () => {
           </svg>
         </button>
         <p className="text-[10px] text-gray-500 leading-tight text-center">
-          By clicking "Get a Quote", I agree to the <span className="underline cursor-pointer">Terms</span> and <span className="underline cursor-pointer">Privacy Policy</span>. I also give my express written consent to be contacted by Speedy Quote Auto and its partners via automated technology (including calls, texts, and emails) even if I am on a Do Not Call list. Consent is not a condition of purchase.
+          By clicking "Get a Quote", I agree to the <span className="underline cursor-pointer">Terms</span> and <span className="underline cursor-pointer">Privacy Policy</span>. I also give my express written consent to be contacted by Now Get Insured and its partners via automated technology (including calls, texts, and emails) even if I am on a Do Not Call list. Consent is not a condition of purchase.
         </p>
       </div>
     </form>
