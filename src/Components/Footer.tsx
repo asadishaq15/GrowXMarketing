@@ -11,13 +11,8 @@ const Footer: React.FC<Props> = ({ setActiveModal }) => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row justify-between mb-12">
           <div className="mb-8 lg:mb-0 lg:w-1/3 pr-4">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-[#72B9CA] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">N</span>
-              </div>
-              <span className="text-2xl font-bold text-white">
-                Now Get <span className="text-[#72B9CA]">Insured</span>
-              </span>
+            <div className="flex items-center mb-4">
+              <img src="/images/Logo-1.png" alt="Now Get Insured" className="h-20 w-auto" />
             </div>
             <p className="text-gray-300 mb-4">
               Expert health insurance solutions to help you find affordable coverage through the ACA marketplace, Medicaid, and more.

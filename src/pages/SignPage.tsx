@@ -59,13 +59,8 @@ const SignPage: React.FC<Props> = ({ setActiveModal }) => {
     <div className="min-h-screen bg-gray-50 py-8">
       {/* Simple header for customer view */}
       <div className="container mx-auto px-6 mb-8">
-        <div className="flex items-center justify-center gap-3">
-          <div className="w-10 h-10 bg-[#034365] rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">N</span>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-800">
-            Now Get <span className="text-[#034365]">Insured</span>
-          </h1>
+        <div className="flex items-center justify-center">
+          <img src="/images/Logo-1.png" alt="Now Get Insured" className="h-[50px] w-auto" />
         </div>
       </div>
 
