@@ -60,19 +60,7 @@ const CTASection: React.FC = () => {
 
         </div>
 
-        {/* Phone CTA */}
-        <div className="text-center mt-10">
-          <p className="text-lg font-semibold text-[#034365] mb-4">
-            Prefer to talk? Call us now:
-          </p>
 
-          <a
-            href="tel:+18889759214"
-            className="text-xl font-bold text-[#467C9E] hover:text-[#034365] hover:underline transition-colors"
-          >
-            +1 888-975-9214
-          </a>
-        </div>
 
         {/* Button */}
         <div className="text-center mt-8">

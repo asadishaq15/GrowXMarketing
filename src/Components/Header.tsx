@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <a href="#how-it-works" className="text-gray-700 hover:text-[#034365] font-medium transition-colors">How It Works</a>
             <a href="#testimonials" className="text-gray-700 hover:text-[#034365] font-medium transition-colors">Testimonials</a>
             <a href="#contact" className="text-gray-700 hover:text-[#034365] font-medium transition-colors">Contact</a>
-            <a href="tel:+18889759214" className="bg-[#034365] text-white px-5 py-2 rounded-full font-bold hover:bg-[#023556] transition-colors">Call Us Now</a>
+
           </nav>
           <button
             className="md:hidden text-gray-700"
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
           <a href="#how-it-works" className="block py-2 px-6 text-gray-700 hover:bg-gray-100">How It Works</a>
           <a href="#testimonials" className="block py-2 px-6 text-gray-700 hover:bg-gray-100">Testimonials</a>
           <a href="#contact" className="block py-2 px-6 text-gray-700 hover:bg-gray-100">Contact</a>
-          <a href="tel:+18889759214" className="block py-2 px-6 text-[#034365] hover:bg-gray-100 font-bold text-center">Call Us Now</a>
+
         </div>
       )}
     </header>
