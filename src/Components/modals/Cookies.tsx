@@ -9,7 +9,7 @@ const CookiePolicy: React.FC<Props> = ({ onClose }) => (
   <Modal onClose={onClose}>
     <div className="prose max-w-none">
       <h2>Cookie Policy</h2>
-      <p>Last Updated: March 16, 2026</p>
+      <p>Last Updated: April 1, 2026</p>
       <h3>1. What are Cookies?</h3>
       <p>
         Cookies are small text files that are placed on your computer or mobile device when you visit a website.
@@ -26,7 +26,7 @@ const CookiePolicy: React.FC<Props> = ({ onClose }) => (
       <h3>4. Third-Party Cookies</h3>
       <h3>5. Changes to This Policy</h3>
       <p>
-        If you have questions about our Cookie Policy, please contact us at privacy@apexdigital.com.
+        If you have questions about our Cookie Policy, please contact us at info@nowgetinsured.com.
       </p>
     </div>
   </Modal>
